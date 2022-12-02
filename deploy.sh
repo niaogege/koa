@@ -8,7 +8,7 @@ set -e
 
 # # 进入生成的文件夹
 # cd dist
-pm2 start ./index.js
+pm2 start ./index.js -i max
 
 # if [ -z "$GITHUB_TOKEN" ]; then
 #   msg='cpp1 from github actions auto deploy commit'
