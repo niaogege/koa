@@ -5,6 +5,11 @@
 5th deploy
 git push -u
 
+### 问题：
+
+error: src refspec main does not match any
+error: failed to push some refs to
+
 Solution A - if you want to name the branch master
 
 Run git push -u origin master instead of git push -u origin main
