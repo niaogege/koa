@@ -8,7 +8,7 @@ set -e
 
 # # 进入生成的文件夹
 # cd dist
-pm2 start ./index.js
+# pm2 start ./index.js
 
 if [ -z "$GITHUB_TOKEN" ]; then
   msg='cpp1 from github actions auto deploy commit'
@@ -22,4 +22,4 @@ fi
 git init
 git add -A
 git commit -m "${msg}"
-git push -f $githubUrl main: gh-pages # 推送到github gh-pages分支
+git push -f $githubUrl main:gh-pages # 推送到github gh-pages分支
