@@ -26,10 +26,11 @@ jobs:
         uses: actions/setup-node@v1 # 作用：安装nodejs
         with:
           node-version: ${{ matrix.node-version }} # 版本
-      - name: run deploy.sh # 步骤3
+      - name: run deploy # 步骤3
         env: # 设置环境变量
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }} # toKen私密变量
-        run: npm i && npm run dev
+        run: npm i && npm run deploy
+
       # 3. 将打包后的代码部署到 gh-pages 分支
       # - name: Deploy 🚀
       #   uses: JamesIves/github-pages-deploy-action@3.5.7
