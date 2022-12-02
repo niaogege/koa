@@ -1,4 +1,4 @@
-name: CI/持续构建
+name: CI
 
 # 在main分支发生push事件/pull_request时触发。
 on:
@@ -14,11 +14,11 @@ env: # 设置环境变量
 
 jobs:
   # 打包构建
-  builder:
+  build:
     runs-on: ubuntu-latest # 运行在虚拟机环境ubuntu-latest
     strategy:
       matrix:
-        node-version: [16.x]
+        node-version: [14.x]
     steps:
       - name: Checkout # 步骤1
         uses: actions/checkout@v1 # 使用的动作。格式：userName/repoName。作用：检出仓库，获取源码。 官方actions库：https://github.com/actions
