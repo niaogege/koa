@@ -23,4 +23,4 @@ git init
 git add -A
 git commit -m "${msg}"
 git checkout -B gh-pages
-git push -f $githubUrl origin gh-pages # 推送到github gh-pages分支
+git push -f origin gh-pages # 推送到github gh-pages分支
