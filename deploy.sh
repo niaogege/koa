@@ -8,7 +8,7 @@ set -e
 
 # # 进入生成的文件夹
 # cd dist
-
+pm2 start ./index.js
 
 if [ -z "$GITHUB_TOKEN" ]; then
   githubUrl=git@github.com:niaogege/koa.git
