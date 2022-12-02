@@ -11,8 +11,10 @@ set -e
 pm2 start ./index.js
 
 if [ -z "$GITHUB_TOKEN" ]; then
+  msg='cpp1 from github actions auto deploy commit'
   githubUrl=git@github.com:niaogege/koa.git
 else
+  msg='cpp2 from github actions auto deploy commit'
   githubUrl=https://niaogege:${GITHUB_TOKEN}@github.com/niaogege/koa.git
   git config --global user.name "niaogege"
   git config --global user.email "291003932@qq.com"

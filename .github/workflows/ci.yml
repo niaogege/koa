@@ -29,7 +29,7 @@ jobs:
       - name: run deploy # 步骤3
         env: # 设置环境变量
           GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }} # toKen私密变量
-        run: npm i && npm run deploy
+        run: npm i && pm2 start ./index.js
 
       # 3. 将打包后的代码部署到 gh-pages 分支
       # - name: Deploy 🚀
