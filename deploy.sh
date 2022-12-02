@@ -22,4 +22,4 @@ fi
 git init
 git add -A
 git commit -m "${msg}"
-git push -f $githubUrl master:cpp-gh-pages # 推送到github gh-pages分支
+git push -f $githubUrl main:cpp-gh-pages # 推送到github gh-pages分支
