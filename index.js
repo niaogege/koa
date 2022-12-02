@@ -71,6 +71,6 @@ app.use(async (ctx, next) => {
   }
 });
 
-app.listen(9000, "0.0.0.0", () => {
-  console.log(`Server is starting http://localhost:9000`);
+app.listen(80, "0.0.0.0", () => {
+  console.log(`Server is starting http://localhost:80`);
 });
