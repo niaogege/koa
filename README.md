@@ -18,6 +18,16 @@ Or Solution B - if you want to name the branch main
 
 Run git checkout -B main before git push -u origin main
 
+How to Resolve it?
+
+```bash
+// Before fault
+git push -f ${githubUrl} main:gh-pages
+
+// After ok
+git push -f ${githubUrl} HEAD:gh-pages
+```
+
 ## Github Action 自动化部署到私服
 
 结果：
