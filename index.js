@@ -24,7 +24,7 @@ app.use(async function cpp2(ctx, next) {
 
 app.use(async (ctx, next) => {
   console.log(ctx.path);
-  if (ctx.url === "/koa/test") {
+  if (ctx.url === "/api/koa/test") {
     // 处理 db 或者进行 HTTP 请求
     // ctx.state.baiduHTML = await axios.get("http://baidu.com");
     app.keys = ["wmh"];
@@ -55,7 +55,7 @@ app.use(async (ctx, next) => {
     </html>
   `;
     ctx.body = appHtml;
-  } else if (ctx.url === "/koa/data") {
+  } else if (ctx.url === "/api/koa/data") {
     ctx.body = [
       {
         name: "cpp",
@@ -71,6 +71,6 @@ app.use(async (ctx, next) => {
   }
 });
 
-app.listen(80, "0.0.0.0", () => {
-  console.log(`Server is starting http://localhost:80`);
+app.listen(8888, "0.0.0.0", () => {
+  console.log(`Server is starting http://localhost:8888/api`);
 });

@@ -9,27 +9,25 @@ on:
     branches:
       - main
 
-env: # 设置环境变量
-  TZ: Asia/Shanghai # 时区（设置时区可使页面中的`最近更新时间`使用时区时间）
+env:
+  # 设置环境变量
+  TARGET_DIR: /www/web/koa
 
 jobs:
   # 打包构建
-  build:
+  depoly:
     runs-on: ubuntu-latest # 运行在虚拟机环境ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [14.x]
     steps:
       - name: Checkout # 步骤1
         uses: actions/checkout@v1 # 使用的动作。格式：userName/repoName。作用：检出仓库，获取源码。 官方actions库：https://github.com/actions
-      - name: Use Node.js # 步骤2
-        uses: actions/setup-node@v1 # 作用：安装nodejs
-        with:
-          node-version: ${{ matrix.node-version }} # 版本
-      - name: run deploy # 步骤3
-        env: # 设置环境变量
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }} # toKen私密变量
-        run: npm i && npm run deploy
+      # - name: Use Node.js # 步骤2
+      #   uses: actions/setup-node@v1 # 作用：安装nodejs
+      #   with:
+      #     node-version: ${{ matrix.node-version }} # 版本
+      # - name: run deploy # 步骤3
+      #   env: # 设置环境变量
+      #     GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }} # toKen私密变量
+      #   run: npm i && npm run deploy
 
       # 3. 将打包后的代码部署到 gh-pages 分支
       # - name: Deploy 🚀
@@ -39,3 +37,25 @@ jobs:
       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       #     BRANCH: gh-pages
       #     FOLDER: dist
+      - name: Deploy Server
+        uses: cross-the-world/ssh-scp-ssh-pipelines@latest
+        env:
+          WELCOME: "ssh scp ssh pipelines CPP server"
+          LASTSSH: "after copying"
+        with:
+          host: "111.230.199.157"
+          user: "root"
+          pass: ${{ secrets.FTP_PASSWORD }}
+          connect_timeout: 20s
+          first_ssh: |-
+            rm -rf $TARGET_DIR
+            echo $WELCOME   
+            mkdir -p $TARGET_DIR
+          scp: |-
+            './*' => $TARGET_DIR/
+          last_ssh: |-
+            cd $TARGET_DIR
+            node -v
+            npm i
+            pm2 start ./index.js -i max
+            echo $LASTSSH
