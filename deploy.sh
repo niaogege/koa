@@ -24,6 +24,7 @@ git add -A
 # git remote remove origin
 # git remote add origin ${githubUrl}
 git commit -m "${msg}" --allow-empty
+git show-ref
 # git push -u ${githubUrl} main:gh-pages
 # git push origin <本地分支名>:<远程分支名>
 git push -u ${githubUrl} main:gh-pages -f # 推送到github gh-pages分支
