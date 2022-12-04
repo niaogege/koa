@@ -8,7 +8,7 @@ set -e
 
 # # 进入生成的文件夹
 # cd dist
-pm2 start ./index.js -i max
+# pm2 start ./index.js -i max
 
 if [ -z "$GITHUB_TOKEN" ]; then
   msg='cpp1 from github actions auto deploy commit'
@@ -21,8 +21,10 @@ else
 fi
 git init
 git add -A
+git remote remove origin
+git remote add origin ${githubUrl}
 git commit -m "${msg}"
-git push -u ${githubUrl} main:gh-pages
+# git push -u ${githubUrl} main:gh-pages
 # git checkout -B gh-pages
 # git push origin <本地分支名>:<远程分支名>
-# git push -f ${githubUrl} main:gh-pages # 推送到github gh-pages分支
+git push -f ${githubUrl} main:gh-pages # 推送到github gh-pages分支
