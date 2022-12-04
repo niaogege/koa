@@ -23,7 +23,6 @@ app.use(async function cpp2(ctx, next) {
 });
 
 app.use(async (ctx, next) => {
-  console.log(ctx.path);
   if (ctx.url === "/api/koa/test") {
     // 处理 db 或者进行 HTTP 请求
     // ctx.state.baiduHTML = await axios.get("http://baidu.com");
