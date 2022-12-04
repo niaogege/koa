@@ -25,6 +25,5 @@ git remote remove origin
 git remote add origin ${githubUrl}
 git commit -m "${msg}"
 # git push -u ${githubUrl} main:gh-pages
-# git checkout -B gh-pages
 # git push origin <本地分支名>:<远程分支名>
 git push -f ${githubUrl} main:gh-pages # 推送到github gh-pages分支

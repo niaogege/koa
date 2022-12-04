@@ -25,7 +25,13 @@ Run git checkout -B main before git push -u origin main
 [页面测试](http://111.230.199.157/api/koa/test)
 
 大体步骤：
-代码上传到 github -> github Action 检测到 main 分支 push 动作，则去执行/.github/workflows/ci.yml 脚本，脚本里回去拉当前分支的代码，然后拷贝到指定服务器，然后服务器再去执行自定义的脚本
+代码上传到 github -> github Action 检测到 main 分支 push 动作(都是在脚本里定义的)，则去执行 **/.github/workflows/ci.yml** 脚本，脚本里会去拉当前分支的代码，然后拷贝到指定服务器，然后服务器再去执行自定义的脚本
+
+这里推荐一个很好的 Action，[cross-the-world/ssh-scp-ssh-pipelines@latest](https://github.com/marketplace/actions/ssh-scp-ssh-pipelines)
+
+主要是将当前目录文件传输到指定服务器的制定目录，还能执行后续的自定义 shell，一级棒
+
+> 在 Actions 使用那里，还能看到我使用了他的 Action，这个不错，信息双方[Dependency graph](https://github.com/cross-the-world/ssh-scp-ssh-pipelines/network/dependents)
 
 ```yml
 name: CI
