@@ -57,5 +57,6 @@ jobs:
             cd $TARGET_DIR
             node -v
             npm i
+            pm2 -v
             pm2 start ./index.js -i max
             echo $LASTSSH
