@@ -41,5 +41,5 @@ jobs:
             node -v
             npm i
             pm2 -v
-            pm2 reload ./index.js -i max
+            pm2 reload ./app.config.js -i max
             echo $LASTSSH
