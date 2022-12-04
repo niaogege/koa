@@ -64,6 +64,10 @@ app.use(async (ctx, next) => {
         name: "wmh",
         age: 24,
       },
+      {
+        name: "chendap",
+        age: 33,
+      },
     ];
   } else {
     ctx.body = "This is Home";

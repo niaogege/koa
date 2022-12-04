@@ -1,0 +1,30 @@
+name: CI
+
+# 在main分支发生push事件/pull_request时触发。
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+env:
+  # 设置环境变量
+  TARGET_DIR: /www/web/koa
+
+jobs:
+  # 打包构建
+  depoly:
+    runs-on: ubuntu-latest # 运行在虚拟机环境ubuntu-latest
+    steps:
+      - name: Checkout # 步骤1
+        uses: actions/checkout@v1 # 使用的动作。格式：userName/repoName。作用：检出仓库，获取源码。 官方actions库：https://github.com/actions
+      - name: Use Node.js # 步骤2
+        uses: actions/setup-node@v1 # 作用：安装nodejs
+        with:
+          node-version: ${{ matrix.node-version }} # 版本
+      - name: run deploy # 步骤3
+        env: # 设置环境变量
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }} # toKen私密变量
+        run: npm i && npm run deploy
