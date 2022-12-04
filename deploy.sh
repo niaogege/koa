@@ -21,8 +21,8 @@ else
 fi
 git init
 git add -A
-git remote remove origin
-git remote add origin ${githubUrl}
+# git remote remove origin
+# git remote add origin ${githubUrl}
 git commit -m "${msg}"
 # git push -u ${githubUrl} main:gh-pages
 # git push origin <本地分支名>:<远程分支名>
