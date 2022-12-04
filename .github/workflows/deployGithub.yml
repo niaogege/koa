@@ -1,4 +1,4 @@
-name: CI
+name: DeployGitHub
 
 # 在main分支发生push事件/pull_request时触发。
 on:

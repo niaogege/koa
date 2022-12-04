@@ -1,4 +1,4 @@
-name: CI
+name: DeployServer
 
 # 在main分支发生push事件/pull_request时触发。
 on:
@@ -41,5 +41,5 @@ jobs:
             node -v
             npm i
             pm2 -v
-            pm2 start ./index.js -i max
+            pm2 reload ./index.js -i max
             echo $LASTSSH
