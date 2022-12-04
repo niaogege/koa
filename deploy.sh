@@ -16,8 +16,8 @@ if [ -z "$GITHUB_TOKEN" ]; then
 else
   msg='cpp2 from github actions auto deploy commit'
   githubUrl=https://niaogege:${GITHUB_TOKEN}@github.com/niaogege/koa.git
-  git config --local user.name "niaogege"
-  git config --local user.email "291003932@qq.com"
+  git config --global user.name "niaogege"
+  git config --global user.email "291003932@qq.com"
 fi
 git init
 git add -A
